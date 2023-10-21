@@ -1,0 +1,27 @@
+.box label{
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #252949;
+}
+.box input{
+    font-size: 0.9rem;
+    padding: 2px 0 2px 10px;
+    height: 1.5rem;
+    max-width:20rem;
+    letter-spacing: 0.05em;
+    border: 1px solid grey;
+    border-radius: 10px;
+    outline: none;
+}
+.box textarea{
+    font-size: 0.9rem;
+    padding: 6px 0 2px 10px;
+    letter-spacing: 0.05em;
+    border: 1px solid grey;
+    border-radius: 10px;
+    outline: none;
+}
+.form{
+    max-width: 500px;
+}
