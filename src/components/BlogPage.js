@@ -14,6 +14,16 @@ const BlogPage = () => {
     queryKey: ["blog-data"],
     queryFn: getBlogs,
   });
+
+  const getDate = (date)=>{
+    const months = ['Jan','Feb','Mar','April','May','June','July','Aug','Sep','Oct','Nov','Dec'];
+    const newDate = new Date(date);
+    const year = newDate.getFullYear();
+    const day = newDate.getDate();
+    const month = newDate.getMonth();
+
+    return `${months[month]} ${day}, ${year}`;
+  }  
   return (
     <Box
       sx={{
@@ -37,7 +47,7 @@ const BlogPage = () => {
             gap: 2,
           }}
         >
-          {data.slice(0, 2).map((newdata) => (
+          {data.map((newdata) => (
             <Box sx={{display:'flex',flexDirection:'column',gap:2}} key={newdata.id}>
               <Card sx={{ width: "100%" }} elevation={2}>
                 <CardContent>
@@ -48,7 +58,7 @@ const BlogPage = () => {
                 <CardContent
                   sx={{ display: "flex", flexDirection: "row", gap: 2 }}
                 >
-                  <Typography>{newdata.date}</Typography>
+                  <Typography>{getDate(newdata.date)}</Typography>
                   <Divider orientation="vertical" flexItem />
                   <Typography>{newdata.work}</Typography>
                 </CardContent>

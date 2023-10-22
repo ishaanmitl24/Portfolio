@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -21,6 +21,15 @@ const Blog = () => {
   const navigateHandler = ()=>{
     navigate('blog');
   }
+  const getDate = (date)=>{
+    const months = ['Jan','Feb','Mar','April','May','June','July','Aug','Sep','Oct','Nov','Dec'];
+    const newDate = new Date(date);
+    const year = newDate.getFullYear();
+    const day = newDate.getDate();
+    const month = newDate.getMonth();
+
+    return `${months[month]} ${day}, ${year}`;
+  }
   return (
     <Box
       sx={{
@@ -34,7 +43,7 @@ const Blog = () => {
         <Typography sx={{color:'#21243D', flexGrow: 1, fontSize: "18px" }}>
           Recent Posts
         </Typography>
-        <button onClick={navigateHandler} className={classes.button}>View all</button>
+        <button  onClick={navigateHandler} className={classes.button}>View all</button>
       </Box>
       {data && (
         <Box
@@ -59,7 +68,7 @@ const Blog = () => {
               <CardContent
                 sx={{ display: "flex", flexDirection: "row", gap: 2 }}
               >
-                <Typography sx={{color:'#21243D'}}>{newdata.date}</Typography>
+                <Typography sx={{color:'#21243D'}}>{getDate(newdata.date)}</Typography>
                 <Divider orientation="vertical" flexItem />
                 <Typography sx={{color:'#21243D'}}>{newdata.work}</Typography>
               </CardContent>
